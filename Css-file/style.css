@@ -474,3 +474,33 @@ a {
 .product-2:hover img, .product-3:hover img, .product-4:hover img {
     transform: scale(1.05);
 }
+/* Floating Cart Menu */
+.cart-dropdown {
+    position: absolute;
+    top: 38px;
+    right: 0;
+    width: 220px;
+    background-color: #1d1d1f;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+    z-index: 1000;
+}
+
+.cart-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cart-empty-msg {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin: 0;
+}

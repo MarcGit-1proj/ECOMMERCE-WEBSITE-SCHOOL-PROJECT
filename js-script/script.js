@@ -1,18 +1,22 @@
+// ==========================================
+// SEARCH BAR TOGGLE & OUTSIDE CLICK
+// ==========================================
 function toggleSearch() {
     document.getElementById("searchBar").classList.toggle("active");
 }
-
 
 document.addEventListener("click", function(event) {
     const search = document.querySelector(".search-container");
     const dropdown = document.getElementById("searchBar");
 
-    if (!search.contains(event.target)) {
+    if (search && dropdown && !search.contains(event.target)) {
         dropdown.classList.remove("active");
     }
 });
 
-// Video Background Control with IntersectionObserver and muted playback
+// ==========================================
+// VIDEO BACKGROUND CONTROL (IntersectionObserver)
+// ==========================================
 const video = document.getElementById("myVideo");
 
 if (video) {
@@ -37,7 +41,9 @@ if (video) {
     observer.observe(video);
 }
 
-// Products and Support dropdown menus hover logic with buffer timeout
+// ==========================================
+// NAVBAR DROPDOWNS (Products & Support)
+// ==========================================
 const dropdown1 = document.querySelector(".dropdown1");
 const dropdown2 = document.querySelector(".dropdown2");
 const dropdownHome = document.getElementById("dropdownHome");
@@ -46,8 +52,8 @@ const dropdownSupport = document.getElementById("dropdownSupport");
 let hideTimeout;
 
 function closeAllDropdowns() {
-    dropdownHome.classList.remove("open");
-    dropdownSupport.classList.remove("open");
+    if (dropdownHome) dropdownHome.classList.remove("open");
+    if (dropdownSupport) dropdownSupport.classList.remove("open");
 }
 
 function cancelHide() {
@@ -60,32 +66,49 @@ function scheduleHide() {
     }, 150);
 }
 
+if (dropdown1 && dropdownHome) {
+    dropdown1.addEventListener("mouseenter", () => {
+        cancelHide();
+        if (dropdownSupport) dropdownSupport.classList.remove("open");
+        dropdownHome.classList.add("open");
+    });
+    dropdown1.addEventListener("mouseleave", scheduleHide);
 
-dropdown1.addEventListener("mouseenter", () => {
-    cancelHide();
-    dropdownSupport.classList.remove("open");
-    dropdownHome.classList.add("open");
-});
-dropdown1.addEventListener("mouseleave", scheduleHide);
+    dropdownHome.addEventListener("mouseenter", cancelHide);
+    dropdownHome.addEventListener("mouseleave", scheduleHide);
+}
 
-dropdownHome.addEventListener("mouseenter", cancelHide);
-dropdownHome.addEventListener("mouseleave", scheduleHide);
+if (dropdown2 && dropdownSupport) {
+    dropdown2.addEventListener("mouseenter", () => {
+        cancelHide();
+        if (dropdownHome) dropdownHome.classList.remove("open");
+        dropdownSupport.classList.add("open");
+    });
+    dropdown2.addEventListener("mouseleave", scheduleHide);
 
+    dropdownSupport.addEventListener("mouseenter", cancelHide);
+    dropdownSupport.addEventListener("mouseleave", scheduleHide);
+}
 
-dropdown2.addEventListener("mouseenter", () => {
-    cancelHide();
-    dropdownHome.classList.remove("open");
-    dropdownSupport.classList.add("open");
-});
-dropdown2.addEventListener("mouseleave", scheduleHide);
-
-dropdownSupport.addEventListener("mouseenter", cancelHide);
-dropdownSupport.addEventListener("mouseleave", scheduleHide);
-
-// AUTOMATIC MAG CO-CLOSE YUNG MENU KAPAG SCROLL MO BSTA YUN NAYUN
+// Automatically close dropdown menus when scrolling
 window.addEventListener("scroll", closeAllDropdowns);
 
-// Cart Toggle Function 
+// ==========================================
+// CART DROPDOWN MENU TOGGLE & OUTSIDE CLICK
+// ==========================================
 function toggleCart() {
-    console.log("Cart clicked");
+    const cartDropdown = document.getElementById("cartDropdown");
+    if (cartDropdown) {
+        cartDropdown.classList.toggle("active");
+    }
 }
+
+// Close the cart dropdown when clicking outside of the cart container
+document.addEventListener("click", function(event) {
+    const cartContainer = document.querySelector(".cart-container");
+    const cartDropdown = document.getElementById("cartDropdown");
+
+    if (cartContainer && cartDropdown && !cartContainer.contains(event.target)) {
+        cartDropdown.classList.remove("active");
+    }
+});
