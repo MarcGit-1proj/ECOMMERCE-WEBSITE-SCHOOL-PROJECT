@@ -1,0 +1,476 @@
+/* ============================
+   BASE / GLOBAL STYLES
+   ============================ */
+body {
+    font-family: -apple-system, BlinkMacSystemFont,
+                 "SF Pro Display", "SF Pro Text",
+                 "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+/* ============================
+   TOP NAVBAR
+   ============================ */
+.top-block {
+    background-color: black;
+    height: 48px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    z-index: 900;
+}
+
+.nav-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.navigation-element-photos {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.element-top {
+    display: flex;
+    gap: 35px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown1, .dropdown2, .dropdown3, .dropdown4  {
+    cursor: pointer;
+    padding: 14px 5px;
+    transition: color .25s ease;
+}
+
+.dropdown-home, .font-support, .font-about-avenzo, .font-contact {
+    color: rgba(255, 255, 255, .8);
+    font-size: 13px;
+    margin: 0;
+    transition: color .25s ease;
+}
+
+.dropdown1:hover .dropdown-home,
+.dropdown2:hover .font-support,
+.dropdown3:hover .font-about-avenzo, 
+.dropdown4:hover .font-contact {
+    color: red;
+}
+
+/* ============================
+   DROPDOWN PANELS
+   ============================ */
+.dropdown-content-home,
+.dropdown-content-support {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100vw;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    display: flex;
+    background-color: rgb(32, 30, 30);
+    color: white;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .15s ease, visibility .15s ease;
+    z-index: 800;
+}
+
+.dropdown-content-home {
+    height: 220px;
+    justify-content: flex-start;
+    padding-left: calc(50% - 180px); 
+}
+
+.dropdown-content-support {
+    height: 240px;
+    justify-content: center;
+    gap: 70px;
+}
+
+.dropdown-content-home.open,
+.dropdown-content-support.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.col-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 8px;
+}
+
+.dropdown-col a {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color .2s ease;
+}
+
+.dropdown-col a:hover {
+    color: #ff4d4d;
+}
+
+/* ============================
+   CART & SEARCH CONTAINERS
+   ============================ */
+.nav-right-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon, .cart-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, .8);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: 1001;
+}
+
+.cart-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 0;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: width .3s ease, padding .3s ease, opacity .3s ease, visibility .3s ease;
+    z-index: 1000;
+}
+
+.search-dropdown.active {
+    width: 240px;
+    padding: 0 15px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-dropdown input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: rgba(255, 255, 255, .9);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.search-dropdown input::placeholder {
+    color: rgba(255, 255, 255, .6);
+    font-size: 13px;
+}
+
+/* ============================
+   HERO VIDEO BACKGROUND SECTION
+   ============================ */
+.video-laptop1 {
+    width: 100%;
+}
+
+.video-container {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 48px);
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    z-index: 10;
+}
+
+.video-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.logo-letter img {
+    width: 2.3em;
+    height: 2.3em;
+    vertical-align: -0.55em;
+    margin-right: -0.55em;
+    margin-left: 0;
+}
+
+.video-text p {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 25px;
+}
+
+.video-text a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.video-text a:hover {
+    background: white;
+    color: black;
+}
+
+/* ============================
+   FEATURED PRODUCT (.product-1) & MARQUEE ALIGNMENT
+   ============================ */
+.product-1 {
+    width: 100%;
+    padding: 80px 0 0 0;
+    text-align: center;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.avenzophone-front {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0 0 12px 0;
+    color: #1d1d1f;
+}
+
+.avenzonphone-front-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #6e6e73;
+    max-width: 650px;
+    margin: 0 auto 24px auto;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+}
+
+.learnmore-phone1 {
+    color: #fff;
+    background-color: #0071e3;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
+}
+
+.learnmore-phone1:hover {
+    background-color: #0077ed;
+    transform: scale(1.03);
+}
+
+.product-1 img {
+    max-width: 620px;
+    width: 90%;
+    height: auto;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: -6px;
+    mix-blend-mode: multiply;
+}
+
+.product-1 img:hover {
+    transform: scale(1.02);
+}
+
+/* ============================
+   MARQUEE (RUNNING TEXT) STYLES
+   ============================ */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    color: #000000;
+    padding: 16px 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    display: flex;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scrollMarquee 8s linear infinite;
+}
+
+.marquee-track span {
+    padding-right: 50px;
+}
+
+@keyframes scrollMarquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ============================
+   PRODUCT GRID - MODERN APPLE STYLE
+   ============================ */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 60px 40px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-2, .product-3, .product-4 {
+    background: #fbfbfd;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect na parang lumulutang (Apple card style) */
+.product-2:hover, .product-3:hover, .product-4:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.product-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.product-container p {
+    font-size: 16px;
+    color: #6e6e73;
+    margin: 0 0 25px 0;
+    line-height: 1.4;
+}
+
+.product-container img {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+    mix-blend-mode: multiply; /* Para maging seamless ang background ng image */
+}
+
+.product-2:hover img, .product-3:hover img, .product-4:hover img {
+    transform: scale(1.05);
+}

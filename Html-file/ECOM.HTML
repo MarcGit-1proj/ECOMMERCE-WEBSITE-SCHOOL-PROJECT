@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avenzo | Next-Gen Tech</title>
+    <!-- Link to style.css inside Css-file folder -->
+    <link rel="stylesheet" href="../Css-file/style.css">
+    
+    <!-- Link to script.js inside js-script folder -->
+    <script src="../js-script/script.js" defer></script>
+</head>
+<body userselect="false" draggable="false">
+    <!-- TOP NAVBAR -->
+    <nav class="top-block">
+        <div class="nav-content">
+            <div class="navigation-element-photos">
+                <!-- Link to LogoNew.png inside images-png folder -->
+                <img src="../images-png/LogoNew.png" alt="Logo" class="logo" draggable="false">
+            </div>
+            
+            <div class="element-top">    
+                <div class="dropdown1">
+                    <p class="dropdown-home">Products</p>
+                </div>
+                <div class="dropdown2">
+                    <p class="font-support">Support</p>
+                </div>
+                <div class="dropdown3">
+                    <p class="font-about-avenzo">About Avenzo</p>
+                </div>
+                <div class="dropdown4">
+                    <p class="font-contact">Contact</p>
+                </div>
+            </div>
+            
+            <div class="nav-right-icons">
+                <div class="search-container">
+                    <button class="search-icon" onclick="toggleSearch()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, .8)" stroke-width="2">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="16" y1="16" x2="21" y2="21"></line>
+                        </svg>
+                    </button>
+                    <div class="search-dropdown" id="searchBar">
+                        <input type="text" class="search-font" placeholder="Search Avenzo...">
+                    </div>
+                </div>
+
+                <div class="cart-container">
+                    <button class="cart-icon" onclick="toggleCart()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, .8)" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                    </button>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PRODUCTS DROPDOWN PANEL -->
+    <div class="dropdown-content-home" id="dropdownHome">
+        <div class="dropdown-col">
+            <span class="col-label">Browse Products</span>
+            <a href="SHOP-PHONE.HTML">Smartphones</a>
+            <a href="#">Laptops</a>
+            <a href="#">Audio &amp; Sound</a>
+            <a href="#">Wearables</a>
+        </div>
+    </div>
+
+    <!-- SUPPORT DROPDOWN PANEL -->
+    <div class="dropdown-content-support" id="dropdownSupport">
+        <div class="dropdown-col">
+            <span class="col-label">Device Support</span>
+            <a href="#">Phones Help</a>
+            <a href="#">Laptops Help</a>
+            <a href="#">Audio Care</a>
+            <a href="#">Wearables Support</a>
+        </div>
+        <div class="dropdown-col">
+            <span class="col-label">Customer Care</span>
+            <a href="#">Community Forum</a>
+            <a href="#">Check Warranty</a>
+            <a href="#">Request Repair</a>
+        </div>
+        <div class="dropdown-col">
+            <span class="col-label">Quick Links</span>
+            <a href="#">Avenzo Care+</a>
+            <a href="#">Account &amp; Security</a>
+            <a href="#">Billing &amp; Orders</a>
+            <a href="#">Accessibility Options</a>
+        </div>
+    </div>
+
+    <!-- HERO VIDEO BACKGROUND SECTION -->
+    <div class="video-laptop1">
+        <div class="video-container">
+            <!-- Link to laptop1.mp4 inside videos-clips folder -->
+            <video autoplay muted loop playsinline id="myVideo">
+                <source src="../videos-clips/laptop1.mp4" type="video/mp4">
+            </video>
+            <div class="video-text">
+                <h1><span class="logo-letter"><img src="../images-png/LogoNew.png" alt="A">venzo</span> Phantom 1 Pro</h1>
+                <p>Engineered for extraordinary performance and style.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FEATURED PRODUCT -->
+    <div class="product-1">
+        <h2 class="avenzophone-front">Avenzo X1</h2>
+        <p class="avenzonphone-front-description">Built to Last. Unlike Flood Control Projects...</p>
+        <a href="#" class="learnmore-phone1">Learn More</a>
+        <img src="../images-png/product1.png" draggable="false">
+        
+        <!-- RUNNING TEXT / IKAW NA BHLA GELO ANO LALAGAY MO YUNG RELATED SA CEWLLPHONE OR ANO-->
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span> Avenzo X1 • 120Hz Fluid AMOLED • All-Day Battery • Ultra-Slim Design • Built to Last • </span>
+                <span> Avenzo X1 • 120Hz Fluid AMOLED • All-Day Battery • Ultra-Slim Design •  Built to Last • </span>
+                <span> Avenzo X1 • 120Hz Fluid AMOLED • All-Day Battery • Ultra-Slim Design •  Built to Last • </span>
+                <span> Avenzo X1 • 120Hz Fluid AMOLED • All-Day Battery • Ultra-Slim Design •  Built to Last • </span>
+            </div>
+        </div>
+    </div> 
+    
+    <!-- PRODUCT GRID -->
+    <div class="product-container">
+        <div class="product-2">
+            <h2>Avenzo X1</h2>
+            <p>Unmatched power in your hands.</p>
+            <img src="../images-png/product2.png">
+        </div>
+        <div class="product-3">
+            <h2>Avenzo Phantom 1</h2>
+            <p>Designed for ultimate speed.</p>
+            <img src="../images-png/produc3.png">
+        </div>
+        <div class="product-4">
+            <h2>Avenzo Buds 1</h2>
+            <p>Immersive sound, zero distractions.</p>
+            <img src="../images-png/product4.png">
+        </div>
+    </div>
+</body>
+</html>
